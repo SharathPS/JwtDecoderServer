@@ -5,8 +5,8 @@ This application provides features to **decode** and **verify signature** of JWT
 This application is deployed in Heroku for ease of usage
 
 ## API Swagger 
-`Doc: https://jwtdecoder.herokuapp.com/v2/api-docs`
-`UI: https://jwtdecoder.herokuapp.com/swagger-ui.html`
+* [Docs]: https://jwtdecoder.herokuapp.com/v2/api-docs
+* [UI]: https://jwtdecoder.herokuapp.com/swagger-ui.html
 
 # Supported Algo's:
 `HS256: HMAC using SHA-256
