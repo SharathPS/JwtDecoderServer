@@ -1,10 +1,12 @@
-# JWT Decoder
+# Parsam JWT
 
-This repository is used **decode** and **verify signature** of JWT provided
+This application provides features to **decode** and **verify signature** of JWT
+
+This application is deployed in Heroku for ease of usage
 
 ## API Swagger 
-`Doc: http://localhost:8080/v2/api-docs`
-`UI: http://localhost:8080/swagger-ui.html`
+`Doc: https://jwtdecoder.herokuapp.com/v2/api-docs`
+`UI: https://jwtdecoder.herokuapp.com/swagger-ui.html`
 
 # Supported Algo's:
 `HS256: HMAC using SHA-256
