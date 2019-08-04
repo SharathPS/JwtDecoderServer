@@ -1,9 +1,8 @@
 package com.sharath.parsam.services;
 
-import com.sharath.parsam.model.ClaimsMaker;
-import com.sharath.parsam.model.DecodeTokenRequest;
 import com.sharath.parsam.model.DecodedJwtHolder;
 import com.sharath.parsam.model.EncodedJwtHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Base64;
@@ -11,6 +10,9 @@ import java.util.Map;
 
 @Service
 public class JwtOperationImpl implements JwtOperations {
+
+    @Autowired
+    private ClaimsMaker claimsMaker;
 
     @Override
     public DecodedJwtHolder decodeJwt(String encodedToken) {
@@ -28,7 +30,7 @@ public class JwtOperationImpl implements JwtOperations {
     }
 
     private Map<String, Object> makeClaims(String tokenPart) {
-        return ClaimsMaker.getClaims(tokenPart)
+        return claimsMaker.getClaims(tokenPart)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Token"));
     }
 

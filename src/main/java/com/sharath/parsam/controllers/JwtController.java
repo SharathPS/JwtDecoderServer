@@ -27,7 +27,7 @@ public class JwtController {
 
     private final String DECODE_TOKEN_PATH = "/decode/token";
 
-    Logger log = LoggerFactory.getLogger(JwtController.class);
+    private Logger log = LoggerFactory.getLogger(JwtController.class);
 
     @RequestMapping(value = DECODE_TOKEN_PATH, method = RequestMethod.POST)
     @ApiOperation(value = "Decode the JWT and display in plain text format")
@@ -42,7 +42,7 @@ public class JwtController {
                 DecodedJwtHolder decodedToken = operations.decodeJwt(encodedToken);
                 if (decodedToken != null) {
                     log.info("Decoded token: " + decodedToken.toString());
-                    return new ResponseEntity<>(decodedToken, HttpStatus.ACCEPTED);
+                    return new ResponseEntity<>(decodedToken, HttpStatus.OK);
                 }
             } catch (IllegalArgumentException e) {
                 log.error("Unable to parse the token: " + encodedToken);
