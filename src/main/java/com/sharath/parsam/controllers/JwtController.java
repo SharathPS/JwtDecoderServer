@@ -1,9 +1,6 @@
 package com.sharath.parsam.controllers;
 
-import com.sharath.parsam.model.DecodeTokenRequest;
-import com.sharath.parsam.model.DecodedJwtHolder;
-import com.sharath.parsam.model.ErrorResponse;
-import com.sharath.parsam.model.TokenSecretRequest;
+import com.sharath.parsam.model.*;
 import com.sharath.parsam.services.JwtOperations;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -56,9 +53,9 @@ public class JwtController {
     @RequestMapping(value = VERIFY_TOKEN_PATH, method = RequestMethod.POST)
     @ApiOperation(value = "Validate signature")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Signature verified"),
+            @ApiResponse(code = 200, response = SignatureResponse.class, message = "Signature verified"),
             @ApiResponse(code = 400, message = "Invalid signature")})
-    public ResponseEntity<String> verifySignature(@RequestBody TokenSecretRequest request) {
-        return new ResponseEntity<>("ValidSignature", HttpStatus.OK);
+    public ResponseEntity<?> verifySignature(@RequestBody TokenSecretRequest request) {
+        return new ResponseEntity<>(new SignatureResponse(true), HttpStatus.OK);
     }
 }
